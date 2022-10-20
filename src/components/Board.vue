@@ -1,28 +1,39 @@
 <template>
-  <!-- ここから追加 -->
+
   <div>
     <header>
       my Trello
     </header>
     <main>
       <p class="info-line">All: 0 tasks</p>
+      <list v-for="(item, index) in lists"
+            :key="item.id"
+            :title="item.title"
+            :listIndex="index"
+      />
       <list-add/>
-      <input v-model="message">
-      <p>{{message}}</p>
+      <TestForm/>
     </main>
   </div>
-  <!-- ここまで追加 -->
 </template>
 
 <script>
-import ListAdd from "@/components/ListAdd";
+import List from './List'
+import ListAdd from './ListAdd'
+import {mapState} from 'vuex'
+import TestForm from "@/components/TestForm";
+
+
 export default {
-  components: {ListAdd},
-  data() {
-    return {
-      message: "te"
-    }
+  components: {
+    TestForm,
+    ListAdd,
+    List,
+  },
+  computed: {
+    ...mapState([
+      'lists'
+    ]),
   },
 }
-
 </script>

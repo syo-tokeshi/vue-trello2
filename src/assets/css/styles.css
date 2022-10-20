@@ -80,7 +80,7 @@ main {
     cursor: pointer;
 }
 
-.active .text-input {
+.text-input:focus {
     background-color: #fff;
 }
 .addable .add-button {
@@ -148,6 +148,10 @@ main {
     border-radius: 8px;
     width: 260px;
     cursor: pointer;
+}
+
+.addcard{
+    font-size: 100px;
 }
 
 .close-button {
